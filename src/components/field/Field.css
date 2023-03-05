@@ -1,0 +1,73 @@
+.cell {
+  height: 29px;
+  width: 29px;
+  background: url('../sprites.png');
+}
+
+.cell.cellBase {
+  background-position: 0 -92px;
+}
+
+.cell.cell0 {
+  background-position: -30px -92px;
+}
+
+.cell.cellFlag {
+  background-position: -61px -92px;
+}
+
+.cell.cellQuestion {
+  background-position: -92px -92px;
+}
+
+.cell.pressQuestion {
+  background-position: -122px -92px;
+}
+
+.cell.cell-1 {
+  background-position: -153px -92px;
+}
+
+.cell.cellRedBomb {
+  background-position: -183px -92px;
+}
+
+.cell.cellCrossBomb {
+  background-position: -213px -92px;
+}
+
+.cell.cell1 {
+  background-position: 0 -123px;
+}
+
+.cell.cell2 {
+  background-position: -30px -123px;
+}
+
+.cell.cell3 {
+  background-position: -61px -123px;
+}
+
+.cell.cell4 {
+  background-position: -91px -123px;
+}
+
+.cell.cell5 {
+  background-position: -122px -123px;
+}
+
+.cell.cell6 {
+  background-position: -152px -123px;
+}
+
+.cell.cell7 {
+  background-position: -183px -123px;
+}
+
+.cell.cell8 {
+  background-position: -214px -123px;
+}
+
+
+
+

@@ -1,0 +1,25 @@
+.smiley {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  background: url('../../../sprites.png');
+}
+.smiley.happy {
+  background-position: 0 -45px;
+}
+
+.smiley.pressHappy {
+  background-position: -50px -45px;
+}
+
+.smiley.wow {
+  background-position: -97px -45px;
+}
+
+.smiley.cool {
+  background-position: -146px -45px;
+}
+
+.smiley.loser {
+  background-position: -195px -45px;
+}

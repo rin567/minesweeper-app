@@ -1,0 +1,52 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  background: black;
+  height: 40px;
+}
+.numbers {
+  width: 23px;
+  height: 40px;
+  background: url('../../../sprites.png');
+}
+
+.numbers.number1 {
+  background-position: 0 0;
+}
+
+.numbers.number2 {
+  background-position: -25px 0;
+}
+
+.numbers.number3 {
+  background-position: -50px 0;
+}
+
+.numbers.number4 {
+  background-position: -75px 0;
+}
+
+.numbers.number5 {
+  background-position: -100px 0;
+}
+
+.numbers.number6 {
+  background-position: -125px 0;
+}
+
+.numbers.number7 {
+  background-position: -150px 0;
+}
+
+.numbers.number8 {
+  background-position: -175px 0;
+}
+
+.numbers.number9 {
+  background-position: -200px 0;
+}
+
+.numbers.number0 {
+  background-position: -225px 0;
+}
