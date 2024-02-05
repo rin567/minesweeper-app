@@ -83,38 +83,6 @@ function App() {
     setMask(() => Array(size*size).fill(myMask[0].base));
   }
 
-
-  // Обработка первого клика
-  function firstClick(x, y) {
-
-    let countBomb = 0;
-
-    function dec(x, y) {
-      if(x >= 0 && x < size && y >= 0 && y < size) {
-        if(field[y * size + x] === bomb) {
-          countBomb++
-          return
-        };
-        field[y * size + x] -= 1;
-      }
-      return countBomb
-    }
-
-    if(field[y*size + x]===bomb){
-      dec(x+1, y);
-      dec(x-1, y);
-      dec(x, y+1);
-      dec(x, y-1);
-      dec(x+1, y-1);
-      dec(x-1, y-1);
-      dec(x+1, y+1);
-      dec(x-1, y+1);
-      field[y*size + x] = countBomb;
-    }
-
-    setField((prev) => [...prev])
-  }
-
   return (
     <div className="App">
       <div className="header">
@@ -132,10 +100,10 @@ function App() {
           start={start}
           setStart={setStart}
           field={field}
+          setField={setField}
           mask={mask}
           setMask={setMask}
           myMask={myMask}
-          firstClick = {firstClick}
           size={size}
           bomb={bomb}
         />
