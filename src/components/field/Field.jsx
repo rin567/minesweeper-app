@@ -5,6 +5,21 @@ const Field = ({setSmiley, start, setStart, mask, setMask, field, myMask, size, 
 
   const dimension = Array(size).fill(0);
 
+  function onContextMenu(x,y,e) {
+   
+    if(start === false) return
+
+    if(mask[y*size + x] === myMask[1].transparent) return
+
+    if(mask[y*size + x] === myMask[0].base){
+      mask[y*size + x] = myMask[2].flag;
+    } else if(mask[y*size + x] === myMask[2].flag) {
+      mask[y*size + x] = myMask[3].question;
+    } else if(mask[y*size + x] === myMask[3].question) {
+      mask[y*size + x] = myMask[0].base;
+    }
+    setMask((prev) => [...prev])
+  }
 
   function youWin() {
     if(field.every((cell, i) => (cell===bomb && (mask[i] === myMask[2].flag || mask[i] === myMask[0].base)) || mask[i] === myMask[1].transparent)){
@@ -22,7 +37,6 @@ const Field = ({setSmiley, start, setStart, mask, setMask, field, myMask, size, 
          return (
            <div key={y} style={{display: 'flex'}}>
              { dimension.map((_,x) => {
-
                 let numCell = field[y*size + x];
 
                 if(mask[y*size + x] !== myMask[1].transparent) {
@@ -93,23 +107,11 @@ const Field = ({setSmiley, start, setStart, mask, setMask, field, myMask, size, 
 
                         setMask((prev) => [...prev])
                        }}
-                       onContextMenu={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        if(start === false) return
-
-                        if(mask[y*size + x] === myMask[1].transparent) return
-
-                        if(mask[y*size + x] === myMask[0].base){
-                          mask[y*size + x] = myMask[2].flag;
-                        } else if(mask[y*size + x] === myMask[2].flag) {
-                          mask[y*size + x] = myMask[3].question;
-                        } else if(mask[y*size + x] === myMask[3].question) {
-                          mask[y*size + x] = myMask[0].base;
-                        }
-                        setMask((prev) => [...prev])
-                       }}
+                       onContextMenu={(e) => 
+                        { e.preventDefault()
+                          e.stopPropagation()
+                          onContextMenu(x,y,e)
+                        }}
                   ></div>
                 )
                })

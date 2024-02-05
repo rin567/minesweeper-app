@@ -1,4 +1,4 @@
-import './styles/NumCounter.css';
+import './NumCounter.css';
 
 const Timer = ({time}) => {
 

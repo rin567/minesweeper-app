@@ -1,17 +1,14 @@
 import './styles/App.css'
 import React, { useState, useEffect } from 'react';
-import Timer from './components/header/timer/Timer.jsx';
-import Smiley from './components/header/smiley/Smiley.jsx'
+import Timer from './components/timer/Timer.jsx';
+import Smiley from './components/smiley/Smiley.jsx'
 import Field from './components/field/Field.jsx';
 
 function App() {
-
-
   // Объявление констант
   const myMask = [{base: 'Base'}, {transparent: 'null'}, {flag: 'Flag'}, {question: 'Question'}];
   const size = 16;
   const bomb = -1;
-
 
   // Создание поля
   function createField(size) {
@@ -103,21 +100,20 @@ function App() {
       return countBomb
     }
 
-      if(field[y*size + x]===bomb){
-        dec(x+1, y);
-        dec(x-1, y);
-        dec(x, y+1);
-        dec(x, y-1);
-        dec(x+1, y-1);
-        dec(x-1, y-1);
-        dec(x+1, y+1);
-        dec(x-1, y+1);
-        field[y*size + x] = countBomb;
-      }
+    if(field[y*size + x]===bomb){
+      dec(x+1, y);
+      dec(x-1, y);
+      dec(x, y+1);
+      dec(x, y-1);
+      dec(x+1, y-1);
+      dec(x-1, y-1);
+      dec(x+1, y+1);
+      dec(x-1, y+1);
+      field[y*size + x] = countBomb;
+    }
 
-      setField((prev) => [...prev])
-
-}
+    setField((prev) => [...prev])
+  }
 
   return (
     <div className="App">
