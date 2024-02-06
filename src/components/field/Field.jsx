@@ -15,7 +15,7 @@ const Field = ({setSmiley, start, setStart, mask, setMask, field, myMask, size, 
   }
   useEffect(() => {
     youWin()
-  })
+  }, [mask])
 
   return (
     <div>

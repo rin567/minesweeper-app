@@ -1,7 +1,7 @@
 import './NumCounter.css';
 
 const Timer = ({time}) => {
-
+  
   let firstNum = 'number'+ Math.trunc(time/10);
   let secondNum = 'number'+ time%10;
 
