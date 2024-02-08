@@ -65,7 +65,6 @@ function App() {
       setSeconds(seconds-1)
     }
   }
-
   useEffect(() => {
     if(start) {
       const timerID = setInterval(() => tick(), 1000);

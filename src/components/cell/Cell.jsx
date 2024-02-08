@@ -1,6 +1,6 @@
 import './Cell.css'
 
-const Cell = ({x,y,setSmiley, start, setStart, mask, 	setMask, field, setField, myMask, size, bomb}) => {
+const Cell = ({x,y,setSmiley, start, setStart, mask, 	setMask, field, setField, myMask, size, bomb, ...props}) => {
 	
 	let numCell = field[y*size + x];
 
@@ -152,7 +152,8 @@ const Cell = ({x,y,setSmiley, start, setStart, mask, 	setMask, field, setField, 
 	}
 
 	return (
-		<div key={x}
+		<div
+			{...props}
 			className={'cell cell'+ numCell}
 			onMouseDown = {(e) => onMouseDown(e)}
 			onMouseUp = {onMouseUp}

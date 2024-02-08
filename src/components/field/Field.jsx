@@ -8,7 +8,7 @@ const Field = ({setSmiley, start, setStart, mask, setMask, field, myMask, size, 
   const dimension = Array(size).fill(0);
 
   function youWin() {
-    if(field.every((cell, i) => (cell===bomb && (mask[i] === myMask[2].flag || mask[i] === myMask[0].base)) || mask[i] === myMask[1].transparent)){
+    if(field.every((cell, i) => ((cell===bomb && mask[i] === myMask[2].flag) || (cell!==bomb && (mask[i] === myMask[0].base || mask[i] === myMask[1].transparent))))){
       setSmiley('cool')
       setStart(false)
     }
@@ -25,7 +25,9 @@ const Field = ({setSmiley, start, setStart, mask, setMask, field, myMask, size, 
              { dimension.map((_,x) => {
                 return (
                   <Cell 
-                    x={x} y={y}
+                    x={x} 
+                    y={y}
+                    key={y*size + x}
                     setSmiley={setSmiley}
                     setField={setField}
                     start={start}
