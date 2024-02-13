@@ -125,10 +125,11 @@ const Field = ({setSmiley, start, setStart}) => {
 	//Обработчики событий
 	function onDoubleClick(x, y) {
 		if((mask[y*size + x] === myMask[0].base) || (field[y*size + x] === 0)) return
-		const arr = []
+		let arr = []
 		let countFlag = 0
 		function pushArr(x, y) {
 			if(x >= 0 && x < size && y >= 0 && y < size){
+				if(mask[y*size + x] === myMask[1].transparent) return
 				if(mask[y*size + x] === myMask[2].flag) {
 					countFlag++
 					return
@@ -147,9 +148,14 @@ const Field = ({setSmiley, start, setStart}) => {
 		if (countFlag === field[y*size + x] ) {
 			while (arr.length){
 				const [x, y] = arr.pop()
-				clear(x, y)
-				if(field[y*size + x]===bomb) isBomb(x, y)
+			 	if(field[y*size + x]===0) {
+					clear(x, y)
+				} else {
+					mask[y*size + x] = myMask[1].transparent
+					if(field[y*size + x]===bomb) isBomb(x, y)
+				}
 			}
+			setMask((prev) => [...prev])
 		}
 	}
 	
